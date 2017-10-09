@@ -3,7 +3,7 @@
         h1 Books page
         hr
         .box
-            .col4(v-for="(book, index) in books").book
+            .col4.center(v-for="(book, index) in books").book
                 router-link(:to="{ name: 'book', params: { id: index } }")
                     img(src="../img/book.png")
                     h2 {{ book.title }}

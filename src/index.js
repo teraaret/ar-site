@@ -8,7 +8,8 @@ import about_page from './pages/about.vue';
 import book_page from './pages/book.vue';
 
 import Style from './style/main.less';
-import Raidap from './style/raidap.css';
+//import Raidap from './style/raidap.css';
+import Raidap2 from './style/raidap2.css';
 
 var router = new VueRouter({
   routes: [

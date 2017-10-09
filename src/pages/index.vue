@@ -3,8 +3,10 @@
         h1 Index page
         hr
         .box
-            .col2 09.10.2017
-            .col10.left Added this page and shit <br> Trying to done book page and book load
+            .col1
+            .col2.center 09.10.2017
+            .col8.left Added this page and shit <br> Trying to done book page and book load
+            .col1
 </template>
 
 <script>
