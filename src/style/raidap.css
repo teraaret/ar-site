@@ -24,7 +24,7 @@
 .container .box .col11,
 .container .box .col12 {
   flex: auto;
-  background-color: rgba(255,255,255,0.25);
+/*  background-color: rgba(255,255,255,0.25);*/
   text-align: center;
   margin: 1.5px 0;
   padding: 5px 0;

@@ -12,8 +12,10 @@
             <router-link class="router-link" to="/books">books</router-link>
             <router-link class="router-link" to="/about">about</router-link>
         </nav>
-           
-        <router-view></router-view>
+        
+        <transition name="fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 <script type="text/javascript" src="build.js"></script></body>
 </html>

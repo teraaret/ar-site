@@ -1,9 +1,14 @@
 <template lang="pug">
-    #book
+    #book.container.center
         h1 {{ book.title }}
         p {{ book.annotation }}
         hr
-        p {{ book.body }}
+        .box
+            .col1
+            .col10
+                p.left.text {{ book.body }}
+            .col1
+        router-link(to="/books") << back
 </template>
 
 
@@ -25,3 +30,13 @@
         }
     }
 </script>
+
+
+<style lang="less">
+    #book {
+        .text {
+            text-indent: 40px;
+            line-height: 1.5em;
+        }
+    }
+</style>

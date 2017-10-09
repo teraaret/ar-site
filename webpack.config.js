@@ -25,7 +25,7 @@ module.exports = {
             { test: /\.css$/, loader: "style-loader!css-loader!less-loader" },
             { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
             { test: /\.pug$/, loader: 'pug-loader' },
-            { test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
+            { test: /\.(png|jpg|gif)$/, loader: 'file-loader', options: { outputPath: './img/', name: '[name].[ext]?[hash]' } }
         ]
     },
     resolve: {

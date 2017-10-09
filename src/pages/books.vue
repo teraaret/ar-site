@@ -1,14 +1,14 @@
 <template lang="pug">
-    #book
-        .container.center
-            h1 Books page
-            .box
-                .col4(v-for="(book, index) in books").book
-                    router-link(:to="{ name: 'book', params: { id: index } }")
-                        img(src="../img/book.png")
-                        h2 {{ book.title }}
-                        p {{ book.genre }}
-                        p.hidden {{ book.annotation }}
+    #books.container.center
+        h1 Books page
+        hr
+        .box
+            .col4(v-for="(book, index) in books").book
+                router-link(:to="{ name: 'book', params: { id: index } }")
+                    img(src="../img/book.png")
+                    h2 {{ book.title }}
+                    p {{ book.genre }}
+                    p.hidden {{ book.annotation }}
 </template>
 
 <script>
@@ -25,10 +25,7 @@
 </script>
 
 <style lang="less">
-    #book {
-        font-family: 'Roboto Condensed', sans-serif;
-        line-height: 24px;
-        
+    #books {
         .book {
             cursor: pointer;
             transition: 0.25s ease;

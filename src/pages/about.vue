@@ -1,6 +1,8 @@
 <template lang="pug">
-    div.index
+    #about.container.center
         h1 About page
+        hr
+        p aboooooooooooooooout
 </template>
 
 <script>
@@ -9,9 +11,6 @@
 </script>
 
 <style lang="less">
-    .index {
-        h1 {
-            color: red;
-        }
+    #about {
     }
 </style>
