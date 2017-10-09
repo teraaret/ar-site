@@ -18,12 +18,14 @@ module.exports = {
         })
     ],
     module: {
-        rules: [
+        rules: 
+        [
 //            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.vue$/, loader: 'vue-loader' },
             { test: /\.css$/, loader: "style-loader!css-loader!less-loader" },
             { test: /\.less$/, loader: "style-loader!css-loader!less-loader" },
             { test: /\.pug$/, loader: 'pug-loader' },
+            { test: /\.(png|jpg|gif)$/, loader: 'file-loader' }
         ]
     },
     resolve: {

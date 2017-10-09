@@ -1,6 +1,10 @@
 <template lang="pug">
-    div.index
-        h1 Index page
+    #index
+        .container.center
+            h1 Index page
+            .box
+                .col2 09.10.2017
+                .col10.left Added this page and shit <br> Trying to done book page and book load
 </template>
 
 <script>
@@ -9,9 +13,9 @@
 </script>
 
 <style lang="less">
-    .index {
-        h1 {
-            color: red;
-        }
+    #index {
+        font-family: 'Roboto Condensed', sans-serif;
+        font-weight: 200;
+        line-height: 24px;
     }
 </style>

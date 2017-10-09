@@ -1,0 +1,73 @@
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+.container.center {
+  text-align: center;
+}
+.container .box {
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+.container .box .col1,
+.container .box .col2,
+.container .box .col3,
+.container .box .col4,
+.container .box .col5,
+.container .box .col6,
+.container .box .col7,
+.container .box .col8,
+.container .box .col9,
+.container .box .col10,
+.container .box .col11,
+.container .box .col12 {
+  flex: auto;
+  background-color: rgba(255,255,255,0.25);
+  text-align: center;
+  margin: 1.5px 0;
+  padding: 5px 0;
+  margin-left: 0.15%;
+  margin-right: 0.15%;
+  font-family: verdana;
+}
+.container .box .col1 {
+  width: 8%;
+}
+.container .box .col2 {
+  width: 14%;
+}
+.container .box .col3 {
+  width: 24%;
+}
+.container .box .col4 {
+  width: 32%;
+}
+.container .box .col5 {
+  width: 36%;
+}
+.container .box .col6 {
+  width: 48%;
+}
+.container .box .col7 {
+  width: 56%;
+}
+.container .box .col8 {
+  width: 64%;
+}
+.container .box .col9 {
+  width: 68%;
+}
+.container .box .col10 {
+  width: 72%;
+}
+.container .box .col11 {
+  width: 90%;
+}
+.container .box .col12 {
+  width: 100%;
+}
+.left {
+    text-align: left !important;
+}
