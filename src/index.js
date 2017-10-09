@@ -19,6 +19,7 @@ var router = new VueRouter({
     { path: '/about', component: about_page },
   ]
 })
+router.replace({ path: '/index', redirect: '/' })
 
 new Vue({
     el: "#app",

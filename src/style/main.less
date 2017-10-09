@@ -5,11 +5,24 @@ body {
     font-family: 'Roboto Condensed', sans-serif;
 }
 
+@media screen and (min-width: 600px) {
+    nav {
+        width: 100vw;
+    }
+}
+
+@media screen and (min-width: 960px) {
+    nav {
+        width: 960px;
+    }
+}
+
 nav {
     background-color: #555;
     display: table;
-    width: 100%;
-    width: 960px;
+    font-size: 20px;
+//    width: 960px;
+//    width: 100vw;
     margin: 0 auto;
     
     .router-link {
@@ -17,7 +30,7 @@ nav {
         color: #ccc;
         text-align: center;
         transition: 0.2s ease;
-        font-size: 20px;
+//        font-size: 20px;
         font-family: 'Roboto Condensed', sans-serif;
         text-decoration: none;
         padding: 10px 0 10px;
