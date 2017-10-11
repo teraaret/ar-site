@@ -39,7 +39,7 @@
             p gender: {{ search_gender }}
         hr
         .box
-            .colauto.center.hero(v-for="(hero,index) in heroes" v-if="check(hero)" @click="info(index)") {{ hero.title }}
+            .col.center.hero(v-for="(hero,index) in heroes" v-if="check(hero)" @click="info(index)") {{ hero.title }}
         .closer(v-if="text_hero" @click="close")
         h2.title(v-if="text_hero") {{ text_hero }}
         p.text {{ text_bio }}

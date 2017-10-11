@@ -13,9 +13,47 @@ body {
   }
 }
 .container {
-  padding-top: 20px;
-  padding-bottom: 20px;
+  min-height: 100%;
+  padding: 0;
   margin: 0 auto;
+}
+.container.test .col1,
+.container.test .col2,
+.container.test .col3,
+.container.test .col4,
+.container.test .col5,
+.container.test .col6,
+.container.test .col7,
+.container.test .col8,
+.container.test .col9,
+.container.test .col10,
+.container.test .col11,
+.container.test .col12,
+.container.test .col {
+  background-color: peachpuff;
+}
+.container nav {
+  background-color: #999;
+  margin: 0;
+  padding: 0;
+}
+.container nav ul {
+  margin: 0;
+  list-style: none;
+}
+.container nav ul a {
+  text-decoration: none;
+}
+.container nav ul li {
+  padding: 10px 0 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+  transition: 0.25s ease;
+}
+.container nav ul li:hover {
+  background-color: red;
 }
 .container h1,
 .container h2,
@@ -53,7 +91,8 @@ body {
 .container .box .col9,
 .container .box .col10,
 .container .box .col11,
-.container .box .col12 {
+.container .box .col12,
+.container .box .col {
   flex: auto;
   text-align: left;
   margin: 1.5px 0;
@@ -73,7 +112,8 @@ body {
 .container .box .col9.center,
 .container .box .col10.center,
 .container .box .col11.center,
-.container .box .col12.center {
+.container .box .col12.center,
+.container .box .col.center {
   text-align: center;
 }
 .container .box .col1.right,
@@ -87,7 +127,8 @@ body {
 .container .box .col9.right,
 .container .box .col10.right,
 .container .box .col11.right,
-.container .box .col12.right {
+.container .box .col12.right,
+.container .box .col.right {
   text-align: right;
 }
 .container .box .col1 {
@@ -126,17 +167,6 @@ body {
 .container .box .col12 {
   width: 100%;
 }
-.container .box .colauto {
-/*    background-color: red;*/
-    flex: auto;
-    text-align: left;
-    margin: 1.5px 0;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-left: 0.15%;
-    margin-right: 0.15%;
-    width: auto;
-}
-.container .box .colauto.center {
-    text-align: center;
+.container .box .col {
+  width: auto;
 }
