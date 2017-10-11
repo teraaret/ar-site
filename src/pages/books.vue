@@ -1,5 +1,6 @@
 <template lang="pug">
     #books.container.center
+        #darker
         h1 Books page
         hr
         .box

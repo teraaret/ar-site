@@ -1,5 +1,6 @@
 <template lang="pug">
     #index.container.center
+        #darker
         h1 Index page
         hr
         .box
