@@ -1,6 +1,5 @@
 <template lang="pug">
     #about.container.center
-        #darker
         h1 About page
         hr
         p aboooooooooooooooout

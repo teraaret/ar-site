@@ -1,6 +1,5 @@
 <template lang="pug">
     #races.container
-        #darker
         h1.header Races
         hr
         .box
@@ -33,14 +32,14 @@
             show_race: function(index) {
                 this.race = this.races[index].title;
                 this.subrace = false;
-                this.text = this.races[index].body;
+                this.text = this.races[index].text;
             },
             show_subrace: function(index_subrace, event) {
                 let atr1 = event.currentTarget.id;
                 let atr2 = index_subrace;
                 this.race = this.races[atr1].title;
                 this.subrace = this.races[atr1].subraces[atr2].title;
-                this.text = this.races[atr1].subraces[atr2].body;
+                this.text = this.races[atr1].subraces[atr2].text;
             },
             close: function() {
                 this.race = '';
@@ -49,7 +48,6 @@
             }
         },
         created: function() {
-            console.log('created');
         }
     }
     
@@ -104,8 +102,6 @@
             width: 28px;
             height: 28px;
             position: relative;
-/*            left: 920px;*/
-/*            top: -40px;*/
             top: 64px;
             cursor: pointer;
             float: right;

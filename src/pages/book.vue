@@ -1,6 +1,5 @@
 <template lang="pug">
     #book.container.center
-        #darker
         h1 {{ book.title }}
         p {{ book.annotation }}
         hr
