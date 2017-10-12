@@ -4,34 +4,39 @@ module.exports = [
         race: 'sahi',
         subrace: 'skamat',
         gender: 'female',
-        bio: 'Shin Lorem ipsum dolor sit amet.'
+        faction: 'nope',
+        bio: 'Шын. Шышын. Шышын-шышын, шышын-шышын. \\ Шын \\ Шы'
     },
     {
         title: 'Sion',
         race: 'sahi',
         subrace: 'salar',
         gender: 'female',
-        bio: 'Sion Lorem ipsum dolor sit amet.'
+        faction: 'nope',
+        bio: 'Ну чё'
     },
     {
         title: 'Riki',
         race: 'sahi',
         subrace: 'skamat',
         gender: 'female',
-        bio: 'Riki Lorem ipsum dolor sit amet.'
+        faction: 'yatr',
+        bio: 'Нет'
     },
     {
         title: 'Skadi',
         race: 'ahomir',
         subrace: 'riat',
         gender: 'female',
-        bio: 'Skadi Lorem ipsum dolor sit amet.'
+        faction: 'fiarr',
+        bio: 'Скадичка.'
     },
     {
         title: 'Er',
         race: 'sahi',
         subrace: 'skamat',
-        gender: 'mmale',
-        bio: 'Er Lorem ipsum dolor sit amet.'
+        gender: 'male',
+        faction: 'yatr',
+        bio: 'Lorem ipsum dolor sit amet.'
     }
 ]

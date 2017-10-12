@@ -456,6 +456,9 @@ module.exports = function normalizeComponent (
         ? [].concat(existing, hook)
         : [hook]
     } else {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
       // register for functioal component in vue file
       options.render = function renderWithStyleInjection (h, context) {
         hook.call(context)
@@ -11348,7 +11351,7 @@ module.exports = g;
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
-  * vue-router v2.7.0
+  * vue-router v2.8.0
   * (c) 2017 Evan You
   * @license MIT
   */
@@ -11436,7 +11439,7 @@ var View = {
       }
     }
 
-    // also regiseter instance in prepatch hook
+    // also register instance in prepatch hook
     // in case the same component instance is reused across different routes
     ;(data.hook || (data.hook = {})).prepatch = function (_, vnode) {
       matched.instances[name] = vnode.componentInstance;
@@ -11444,6 +11447,14 @@ var View = {
 
     // resolve props
     data.props = resolveProps(route, matched.props && matched.props[name]);
+    data.attrs = {};
+
+    for (var key in data.props) {
+      if (!('props' in component) || !(key in component.props)) {
+        data.attrs[key] = data.props[key];
+        delete data.props[key];
+      }
+    }
 
     return h(component, data, children)
   }
@@ -11501,8 +11512,7 @@ function resolveQuery (
     parsedQuery = {};
   }
   for (var key in extraQuery) {
-    var val = extraQuery[key];
-    parsedQuery[key] = Array.isArray(val) ? val.slice() : val;
+    parsedQuery[key] = extraQuery[key];
   }
   return parsedQuery
 }
@@ -11579,12 +11589,18 @@ function createRoute (
   router
 ) {
   var stringifyQuery$$1 = router && router.options.stringifyQuery;
+
+  var query = location.query || {};
+  try {
+    query = clone(query);
+  } catch (e) {}
+
   var route = {
     name: location.name || (record && record.name),
     meta: (record && record.meta) || {},
     path: location.path || '/',
     hash: location.hash || '',
-    query: location.query || {},
+    query: query,
     params: location.params || {},
     fullPath: getFullPath(location, stringifyQuery$$1),
     matched: record ? formatMatch(record) : []
@@ -11593,6 +11609,20 @@ function createRoute (
     route.redirectedFrom = getFullPath(redirectedFrom, stringifyQuery$$1);
   }
   return Object.freeze(route)
+}
+
+function clone (value) {
+  if (Array.isArray(value)) {
+    return value.map(clone)
+  } else if (value && typeof value === 'object') {
+    var res = {};
+    for (var key in value) {
+      res[key] = clone(value[key]);
+    }
+    return res
+  } else {
+    return value
+  }
 }
 
 // the starting route that represents the initial state
@@ -11648,6 +11678,8 @@ function isObjectEqual (a, b) {
   if ( a === void 0 ) a = {};
   if ( b === void 0 ) b = {};
 
+  // handle null value #1566
+  if (!a || !b) { return a === b }
   var aKeys = Object.keys(a);
   var bKeys = Object.keys(b);
   if (aKeys.length !== bKeys.length) {
@@ -11827,7 +11859,7 @@ function findAnchor (children) {
 var _Vue;
 
 function install (Vue) {
-  if (install.installed) { return }
+  if (install.installed && _Vue === Vue) { return }
   install.installed = true;
 
   _Vue = Vue;
@@ -11949,14 +11981,14 @@ function cleanPath (path) {
   return path.replace(/\/\//g, '/')
 }
 
-var index$1 = Array.isArray || function (arr) {
+var isarray = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
 /**
  * Expose `pathToRegexp`.
  */
-var index = pathToRegexp;
+var pathToRegexp_1 = pathToRegexp;
 var parse_1 = parse;
 var compile_1 = compile;
 var tokensToFunction_1 = tokensToFunction;
@@ -12133,7 +12165,7 @@ function tokensToFunction (tokens) {
         }
       }
 
-      if (index$1(value)) {
+      if (isarray(value)) {
         if (!token.repeat) {
           throw new TypeError('Expected "' + token.name + '" to not repeat, but received `' + JSON.stringify(value) + '`')
         }
@@ -12284,7 +12316,7 @@ function stringToRegexp (path, keys, options) {
  * @return {!RegExp}
  */
 function tokensToRegExp (tokens, keys, options) {
-  if (!index$1(keys)) {
+  if (!isarray(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -12360,7 +12392,7 @@ function tokensToRegExp (tokens, keys, options) {
  * @return {!RegExp}
  */
 function pathToRegexp (path, keys, options) {
-  if (!index$1(keys)) {
+  if (!isarray(keys)) {
     options = /** @type {!Object} */ (keys || options);
     keys = [];
   }
@@ -12371,20 +12403,21 @@ function pathToRegexp (path, keys, options) {
     return regexpToRegexp(path, /** @type {!Array} */ (keys))
   }
 
-  if (index$1(path)) {
+  if (isarray(path)) {
     return arrayToRegexp(/** @type {!Array} */ (path), /** @type {!Array} */ (keys), options)
   }
 
   return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
 }
 
-index.parse = parse_1;
-index.compile = compile_1;
-index.tokensToFunction = tokensToFunction_1;
-index.tokensToRegExp = tokensToRegExp_1;
+pathToRegexp_1.parse = parse_1;
+pathToRegexp_1.compile = compile_1;
+pathToRegexp_1.tokensToFunction = tokensToFunction_1;
+pathToRegexp_1.tokensToRegExp = tokensToRegExp_1;
 
 /*  */
 
+// $flow-disable-line
 var regexpCompileCache = Object.create(null);
 
 function fillParams (
@@ -12395,7 +12428,7 @@ function fillParams (
   try {
     var filler =
       regexpCompileCache[path] ||
-      (regexpCompileCache[path] = index.compile(path));
+      (regexpCompileCache[path] = pathToRegexp_1.compile(path));
     return filler(params || {}, { pretty: true })
   } catch (e) {
     if (process.env.NODE_ENV !== 'production') {
@@ -12415,7 +12448,9 @@ function createRouteMap (
 ) {
   // the path list is used to control path matching priority
   var pathList = oldPathList || [];
+  // $flow-disable-line
   var pathMap = oldPathMap || Object.create(null);
+  // $flow-disable-line
   var nameMap = oldNameMap || Object.create(null);
 
   routes.forEach(function (route) {
@@ -12457,8 +12492,12 @@ function addRouteRecord (
     );
   }
 
-  var normalizedPath = normalizePath(path, parent);
   var pathToRegexpOptions = route.pathToRegexpOptions || {};
+  var normalizedPath = normalizePath(
+    path,
+    parent,
+    pathToRegexpOptions.strict
+  );
 
   if (typeof route.caseSensitive === 'boolean') {
     pathToRegexpOptions.sensitive = route.caseSensitive;
@@ -12546,9 +12585,9 @@ function addRouteRecord (
 }
 
 function compileRouteRegex (path, pathToRegexpOptions) {
-  var regex = index(path, [], pathToRegexpOptions);
+  var regex = pathToRegexp_1(path, [], pathToRegexpOptions);
   if (process.env.NODE_ENV !== 'production') {
-    var keys = {};
+    var keys = Object.create(null);
     regex.keys.forEach(function (key) {
       warn(!keys[key.name], ("Duplicate param keys in route with path: \"" + path + "\""));
       keys[key.name] = true;
@@ -12557,8 +12596,8 @@ function compileRouteRegex (path, pathToRegexpOptions) {
   return regex
 }
 
-function normalizePath (path, parent) {
-  path = path.replace(/\/$/, '');
+function normalizePath (path, parent, strict) {
+  if (!strict) { path = path.replace(/\/$/, ''); }
   if (path[0] === '/') { return path }
   if (parent == null) { return path }
   return cleanPath(((parent.path) + "/" + path))
@@ -12830,6 +12869,8 @@ function resolveRecordPath (path, record) {
 var positionStore = Object.create(null);
 
 function setupScroll () {
+  // Fix for #1585 for Firefox
+  window.history.replaceState({ key: getStateKey() }, '');
   window.addEventListener('popstate', function (e) {
     saveScrollPosition();
     if (e.state && e.state.key) {
@@ -12861,25 +12902,21 @@ function handleScroll (
   router.app.$nextTick(function () {
     var position = getScrollPosition();
     var shouldScroll = behavior(to, from, isPop ? position : null);
+
     if (!shouldScroll) {
       return
     }
-    var isObject = typeof shouldScroll === 'object';
-    if (isObject && typeof shouldScroll.selector === 'string') {
-      var el = document.querySelector(shouldScroll.selector);
-      if (el) {
-        var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
-        offset = normalizeOffset(offset);
-        position = getElementPosition(el, offset);
-      } else if (isValidPosition(shouldScroll)) {
-        position = normalizePosition(shouldScroll);
-      }
-    } else if (isObject && isValidPosition(shouldScroll)) {
-      position = normalizePosition(shouldScroll);
-    }
 
-    if (position) {
-      window.scrollTo(position.x, position.y);
+    if (typeof shouldScroll.then === 'function') {
+      shouldScroll.then(function (shouldScroll) {
+        scrollToPosition((shouldScroll), position);
+      }).catch(function (err) {
+        if (process.env.NODE_ENV !== 'production') {
+          assert(false, err.toString());
+        }
+      });
+    } else {
+      scrollToPosition(shouldScroll, position);
     }
   });
 }
@@ -12931,6 +12968,26 @@ function normalizeOffset (obj) {
 
 function isNumber (v) {
   return typeof v === 'number'
+}
+
+function scrollToPosition (shouldScroll, position) {
+  var isObject = typeof shouldScroll === 'object';
+  if (isObject && typeof shouldScroll.selector === 'string') {
+    var el = document.querySelector(shouldScroll.selector);
+    if (el) {
+      var offset = shouldScroll.offset && typeof shouldScroll.offset === 'object' ? shouldScroll.offset : {};
+      offset = normalizeOffset(offset);
+      position = getElementPosition(el, offset);
+    } else if (isValidPosition(shouldScroll)) {
+      position = normalizePosition(shouldScroll);
+    }
+  } else if (isObject && isValidPosition(shouldScroll)) {
+    position = normalizePosition(shouldScroll);
+  }
+
+  if (position) {
+    window.scrollTo(position.x, position.y);
+  }
 }
 
 /*  */
@@ -13028,7 +13085,7 @@ function resolveAsyncComponents (matched) {
         pending++;
 
         var resolve = once(function (resolvedDef) {
-          if (resolvedDef.__esModule && resolvedDef.default) {
+          if (isESModule(resolvedDef)) {
             resolvedDef = resolvedDef.default;
           }
           // save resolved on async factory in case it's used elsewhere
@@ -13092,6 +13149,14 @@ function flatMapComponents (
 
 function flatten (arr) {
   return Array.prototype.concat.apply([], arr)
+}
+
+var hasSymbol =
+  typeof Symbol === 'function' &&
+  typeof Symbol.toStringTag === 'symbol';
+
+function isESModule (obj) {
+  return obj.__esModule || (hasSymbol && obj[Symbol.toStringTag] === 'Module')
 }
 
 // in Webpack 2, require.ensure now also returns a Promise
@@ -13422,9 +13487,18 @@ var HTML5History = (function (History$$1) {
       setupScroll();
     }
 
+    var initLocation = getLocation(this.base);
     window.addEventListener('popstate', function (e) {
       var current = this$1.current;
-      this$1.transitionTo(getLocation(this$1.base), function (route) {
+
+      // Avoiding first `popstate` event dispatched in some browsers but first
+      // history route not updated since async guard at the same time.
+      var location = getLocation(this$1.base);
+      if (this$1.current === START && location === initLocation) {
+        return
+      }
+
+      this$1.transitionTo(location, function (route) {
         if (expectScroll) {
           handleScroll(router, route, current, true);
         }
@@ -13508,26 +13582,50 @@ var HashHistory = (function (History$$1) {
   HashHistory.prototype.setupListeners = function setupListeners () {
     var this$1 = this;
 
-    window.addEventListener('hashchange', function () {
+    var router = this.router;
+    var expectScroll = router.options.scrollBehavior;
+    var supportsScroll = supportsPushState && expectScroll;
+
+    if (supportsScroll) {
+      setupScroll();
+    }
+
+    window.addEventListener(supportsPushState ? 'popstate' : 'hashchange', function () {
+      var current = this$1.current;
       if (!ensureSlash()) {
         return
       }
       this$1.transitionTo(getHash(), function (route) {
-        replaceHash(route.fullPath);
+        if (supportsScroll) {
+          handleScroll(this$1.router, route, current, true);
+        }
+        if (!supportsPushState) {
+          replaceHash(route.fullPath);
+        }
       });
     });
   };
 
   HashHistory.prototype.push = function push (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       pushHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
 
   HashHistory.prototype.replace = function replace (location, onComplete, onAbort) {
+    var this$1 = this;
+
+    var ref = this;
+    var fromRoute = ref.current;
     this.transitionTo(location, function (route) {
       replaceHash(route.fullPath);
+      handleScroll(this$1.router, route, fromRoute, false);
       onComplete && onComplete(route);
     }, onAbort);
   };
@@ -13577,15 +13675,27 @@ function getHash () {
   return index === -1 ? '' : href.slice(index + 1)
 }
 
-function pushHash (path) {
-  window.location.hash = path;
-}
-
-function replaceHash (path) {
+function getUrl (path) {
   var href = window.location.href;
   var i = href.indexOf('#');
   var base = i >= 0 ? href.slice(0, i) : href;
-  window.location.replace((base + "#" + path));
+  return (base + "#" + path)
+}
+
+function pushHash (path) {
+  if (supportsPushState) {
+    pushState(getUrl(path));
+  } else {
+    window.location.hash = path;
+  }
+}
+
+function replaceHash (path) {
+  if (supportsPushState) {
+    replaceState(getUrl(path));
+  } else {
+    window.location.replace(getUrl(path));
+  }
 }
 
 /*  */
@@ -13687,7 +13797,7 @@ var VueRouter = function VueRouter (options) {
   }
 };
 
-var prototypeAccessors = { currentRoute: {} };
+var prototypeAccessors = { currentRoute: { configurable: true } };
 
 VueRouter.prototype.match = function match (
   raw,
@@ -13845,7 +13955,7 @@ function createHref (base, fullPath, mode) {
 }
 
 VueRouter.install = install;
-VueRouter.version = '2.7.0';
+VueRouter.version = '2.8.0';
 
 if (inBrowser && window.Vue) {
   window.Vue.use(VueRouter);
@@ -13902,7 +14012,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-5c5290c0", Component.options)
   } else {
     hotAPI.reload("data-v-5c5290c0", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14095,7 +14205,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-7bb40578", Component.options)
   } else {
     hotAPI.reload("data-v-7bb40578", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14279,7 +14389,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-03df3d0b", Component.options)
   } else {
     hotAPI.reload("data-v-03df3d0b", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14408,7 +14518,7 @@ if (false) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e6bab2e0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_races_vue__ = __webpack_require__(33);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e6bab2e0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_races_vue__ = __webpack_require__(34);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
@@ -14448,7 +14558,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-e6bab2e0", Component.options)
   } else {
     hotAPI.reload("data-v-e6bab2e0", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14602,6 +14712,12 @@ module.exports = [
 
 /***/ }),
 /* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/race.png?62ada63a91976f37e5c78cf3e48d5858";
+
+/***/ }),
+/* 34 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14618,7 +14734,7 @@ var render = function() {
       _vm._l(_vm.races, function(race, index_race) {
         return _c("div", { staticClass: "col2 center" }, [
           _c("img", {
-            attrs: { src: __webpack_require__(34) },
+            attrs: { src: __webpack_require__(33) },
             on: {
               click: function($event) {
                 _vm.show_race(index_race)
@@ -14684,12 +14800,6 @@ if (false) {
 }
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "./img/race.png?62ada63a91976f37e5c78cf3e48d5858";
-
-/***/ }),
 /* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -14736,7 +14846,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-3e45936c", Component.options)
   } else {
     hotAPI.reload("data-v-3e45936c", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14780,7 +14890,7 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#heroes input,\n#heroes select {\n  width: 400px;\n  font-size: 16px;\n  background-color: transparent;\n  border: none;\n  border: 1px solid white;\n  border-radius: 5px;\n  color: white;\n  padding: 10px 10px;\n  margin: 0 auto;\n}\n#heroes input {\n  width: 400px;\n}\n#heroes select {\n  width: 200px;\n  background: transparent;\n  -webkit-appearance: none;\n}\n#heroes select option {\n  background-color: black;\n}\n#heroes ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n#heroes ul li {\n  display: inline-block;\n  font-size: 20px;\n  padding-left: 10px;\n  padding-right: 10px;\n  transition: 0.25s ease;\n}\n#heroes ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#heroes .hero {\n  border-bottom: 2px solid #999;\n  transition: 0.25s ease;\n}\n#heroes .hero:hover {\n  color: white;\n  border-color: white;\n  cursor: pointer;\n}\n#heroes .closer {\n  background-image: url(" + __webpack_require__(5) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#heroes h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#heroes p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n", ""]);
+exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#heroes input,\n#heroes select {\n  width: 400px;\n  font-size: 16px;\n  background-color: transparent;\n  border: none;\n  border: 1px solid white;\n  border-radius: 5px;\n  color: white;\n  padding: 10px 10px;\n  margin: 0 auto;\n}\n#heroes input {\n  width: 400px;\n  width: calc(101%);\n}\n#heroes select {\n  width: 220px;\n  width: 100%;\n  background: transparent;\n  -webkit-appearance: none;\n}\n#heroes select option {\n  background-color: black;\n}\n#heroes ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n#heroes ul li {\n  display: inline-block;\n  font-size: 20px;\n  padding-left: 10px;\n  padding-right: 10px;\n  transition: 0.25s ease;\n}\n#heroes ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#heroes .hero {\n  border-bottom: 2px solid #999;\n  transition: 0.25s ease;\n}\n#heroes .hero:hover {\n  color: white;\n  border-color: white;\n  cursor: pointer;\n}\n#heroes .closer {\n  background-image: url(" + __webpack_require__(5) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#heroes h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#heroes p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes div.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes .white {\n  color: white;\n}\n#heroes .label {\n  padding-top: 14px;\n}\n", ""]);
 
 // exports
 
@@ -14836,26 +14946,98 @@ exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#he
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var heroes = __webpack_require__(39);
+
+function clear() {
+    alert('te');
+}
 
 module.exports = {
     data: function () {
         return {
             debug: true,
             search: '',
-            genders: ['mmale', 'female', 'irami', 'shelt', 'andigma'],
+            genders: ['male', 'female', 'irami', 'shelt', 'andigma'],
+            factions: ['fiarr', 'yatr', 'enoh', 'adamanta', 'darkness'],
             heroes: heroes,
             text_hero: '',
+            text_race: '',
+            text_subrace: '',
+            text_gender: '',
+            text_faction: '',
             text_bio: '',
             search_race: '',
             search_subrace: '',
-            search_gender: ''
+            search_gender: '',
+            search_faction: ''
         };
+    },
+    computed: {
+        text_bio_advanced: function () {
+            let input = this.text_bio;
+            input = input.split("\\");
+            let output = '';
+            input.map(function (p) {
+                output += '<p>' + p + '</p>';
+            });
+            //                let output = input.map(function(p){ return '<p>'+p+'</p>' })
+            //                return this.text_bio.replace(/\\/g,"<br/>");
+            //                return this.text_bio.split("\\").join('<br/>');
+            return output;
+        }
     },
     methods: {
         info: function (index) {
             this.text_hero = this.heroes[index].title;
+            this.text_race = this.heroes[index].race;
+            this.text_subrace = this.heroes[index].subrace;
+            this.text_gender = this.heroes[index].gender;
+            this.text_faction = this.heroes[index].faction;
             this.text_bio = this.heroes[index].bio;
         },
         close: function () {
@@ -14873,17 +15055,28 @@ module.exports = {
             if (hero.subrace.toLowerCase().indexOf(this.search_subrace.toLowerCase()) != -1) {
                 search_points += 1;
             }
-            if (hero.gender.toLowerCase().indexOf(this.search_gender.toLowerCase()) != -1) {
+            if (hero.gender.toLowerCase() == this.search_gender.toLowerCase()) {
                 search_points += 1;
             }
-            if (search_points == 4) {
+            if (this.search_gender == "") {
+                search_points += 1;
+            }
+            if (hero.faction.toLowerCase() == this.search_faction.toLowerCase()) {
+                search_points += 1;
+            }
+            if (this.search_faction == "") {
+                search_points += 1;
+            }
+            if (search_points == 5) {
                 return true;
             } else {
                 return false;
             }
         }
     },
-    created: function () {}
+    created: function () {
+        //            this.info(0)
+    }
 };
 
 /***/ }),
@@ -14896,35 +15089,40 @@ module.exports = [
         race: 'sahi',
         subrace: 'skamat',
         gender: 'female',
-        bio: 'Shin Lorem ipsum dolor sit amet.'
+        faction: 'nope',
+        bio: 'Шын. Шышын. Шышын-шышын, шышын-шышын. \\ Шын \\ Шы'
     },
     {
         title: 'Sion',
         race: 'sahi',
         subrace: 'salar',
         gender: 'female',
-        bio: 'Sion Lorem ipsum dolor sit amet.'
+        faction: 'nope',
+        bio: 'Ну чё'
     },
     {
         title: 'Riki',
         race: 'sahi',
         subrace: 'skamat',
         gender: 'female',
-        bio: 'Riki Lorem ipsum dolor sit amet.'
+        faction: 'yatr',
+        bio: 'Нет'
     },
     {
         title: 'Skadi',
         race: 'ahomir',
         subrace: 'riat',
         gender: 'female',
-        bio: 'Skadi Lorem ipsum dolor sit amet.'
+        faction: 'fiarr',
+        bio: 'Скадичка.'
     },
     {
         title: 'Er',
         race: 'sahi',
         subrace: 'skamat',
-        gender: 'mmale',
-        bio: 'Er Lorem ipsum dolor sit amet.'
+        gender: 'male',
+        faction: 'yatr',
+        bio: 'Lorem ipsum dolor sit amet.'
     }
 ]
 
@@ -14967,7 +15165,7 @@ var render = function() {
       _c("div", { staticClass: "col3" })
     ]),
     _c("div", { staticClass: "box" }, [
-      _c("div", { staticClass: "col3" }),
+      _c("div", { staticClass: "col3 right label" }, [_vm._v("Race ")]),
       _c("div", { staticClass: "col3 right" }, [
         _c(
           "select",
@@ -14998,7 +15196,7 @@ var render = function() {
           },
           [
             _c("option", { attrs: { value: "", selected: "selected" } }, [
-              _vm._v("choose race...")
+              _vm._v("any")
             ]),
             _c("option", { attrs: { disabled: "disabled" } }, [_vm._v("---")]),
             _c("option", { attrs: { value: "sahi" } }, [_vm._v("sahi")]),
@@ -15036,7 +15234,7 @@ var render = function() {
           },
           [
             _c("option", { attrs: { value: "", selected: "selected" } }, [
-              _vm._v("choose subrace...")
+              _vm._v("any")
             ]),
             _c("option", { attrs: { disabled: "disabled" } }, [_vm._v("---")]),
             _c("option", { attrs: { value: "skamat" } }, [_vm._v("skamat")]),
@@ -15045,54 +15243,88 @@ var render = function() {
           ]
         )
       ]),
-      _c("div", { staticClass: "col3" })
+      _c("div", { staticClass: "col3 left label" }, [_vm._v(" Subrace")])
     ]),
     _c("div", { staticClass: "box" }, [
-      _c("div", { staticClass: "col3" }),
-      _c("div", { staticClass: "col6 center" }, [
+      _c("div", { staticClass: "col3 right label" }, [_vm._v("Gender ")]),
+      _c("div", { staticClass: "col3 right" }, [
         _c(
-          "ul",
-          [
-            _c(
-              "li",
+          "select",
+          {
+            directives: [
               {
-                on: {
-                  click: function($event) {
-                    _vm.search_gender = ""
-                  }
-                }
-              },
-              [_vm._v("any")]
-            ),
-            _vm._l(_vm.genders, function(gender, index) {
-              return _c(
-                "li",
-                {
-                  on: {
-                    click: function($event) {
-                      _vm.search_gender = _vm.genders[index]
-                    }
-                  }
-                },
-                [_vm._v(_vm._s(gender))]
-              )
-            })
-          ],
-          2
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search_gender,
+                expression: "search_gender"
+              }
+            ],
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.search_gender = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "", selected: "selected" } }, [
+              _vm._v("any")
+            ]),
+            _c("option", { attrs: { disabled: "disabled" } }, [_vm._v("---")]),
+            _c("option", { attrs: { value: "male" } }, [_vm._v("male")]),
+            _c("option", { attrs: { value: "female" } }, [_vm._v("female")])
+          ]
         )
       ]),
-      _c("div", { staticClass: "col3" })
+      _c("div", { staticClass: "col3" }, [
+        _c(
+          "select",
+          {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.search_faction,
+                expression: "search_faction"
+              }
+            ],
+            on: {
+              change: function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.search_faction = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              }
+            }
+          },
+          [
+            _c("option", { attrs: { value: "", selected: "selected" } }, [
+              _vm._v("any")
+            ]),
+            _c("option", { attrs: { disabled: "disabled" } }, [_vm._v("---")]),
+            _c("option", { attrs: { value: "fiarr" } }, [_vm._v("fiarr")]),
+            _c("option", { attrs: { value: "yatr" } }, [_vm._v("yatr")])
+          ]
+        )
+      ]),
+      _c("div", { staticClass: "col3 left label" }, [_vm._v(" Faction")])
     ]),
-    _vm.debug
-      ? _c("div", { staticClass: "debug" }, [
-          _c("hr"),
-          _c("h3", [_vm._v("debug")]),
-          _c("p", [_vm._v("name: " + _vm._s(_vm.search))]),
-          _c("p", [_vm._v("race: " + _vm._s(_vm.search_race))]),
-          _c("p", [_vm._v("subrace: " + _vm._s(_vm.search_subrace))]),
-          _c("p", [_vm._v("gender: " + _vm._s(_vm.search_gender))])
-        ])
-      : _vm._e(),
     _c("hr"),
     _c(
       "div",
@@ -15120,7 +15352,29 @@ var render = function() {
     _vm.text_hero
       ? _c("h2", { staticClass: "title" }, [_vm._v(_vm._s(_vm.text_hero))])
       : _vm._e(),
-    _c("p", { staticClass: "text" }, [_vm._v(_vm._s(_vm.text_bio))])
+    _vm.text_hero
+      ? _c("p", { staticClass: "text" }, [
+          _c("span", { staticClass: "white" }, [_vm._v("Race: ")]),
+          _c("span", [_vm._v(_vm._s(_vm.text_race) + "   ")]),
+          _c("span", [_vm._v("|   ")]),
+          _c("span", { staticClass: "white" }, [_vm._v("Subrace: ")]),
+          _c("span", [_vm._v(_vm._s(_vm.text_subrace) + "   ")]),
+          _c("span", [_vm._v("|   ")]),
+          _c("span", { staticClass: "white" }, [_vm._v("Gender: ")]),
+          _c("span", [_vm._v(_vm._s(_vm.text_gender) + "   ")]),
+          _c("span", [_vm._v("|   ")]),
+          _c("span", { staticClass: "white" }, [_vm._v("Faction: ")]),
+          _c("span", [_vm._v(_vm._s(_vm.text_faction) + "   ")])
+        ])
+      : _vm._e(),
+    _vm.text_hero
+      ? _c("p", { staticClass: "text" }, [
+          _c("span", { staticClass: "white" }, [_vm._v("Bio: ")])
+        ])
+      : _vm._e(),
+    _vm.text_hero
+      ? _c("div", { staticClass: "text" }, [_vm._v(_vm._s(_vm.text_bio))])
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -15181,7 +15435,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-9bc2464a", Component.options)
   } else {
     hotAPI.reload("data-v-9bc2464a", Component.options)
-  }
+' + '  }
   module.hot.dispose(function (data) {
     disposed = true
   })
