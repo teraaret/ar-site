@@ -212,6 +212,7 @@
         .hero {
             border-bottom: 2px solid #999;
             transition: 0.25s ease;
+            font-size: 20px;
             &:hover {
                 color: white;
                 border-color: white;

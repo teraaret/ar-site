@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -165,7 +165,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(14)
+var listToStyles = __webpack_require__(13)
 
 /*
 type StyleObject = {
@@ -667,37 +667,12 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports) {
-
-module.exports = [
-    {
-        title: 'ДП',
-        genre: 'novel | adventure',
-        annotation: 'Heh',
-        body: 'Ipsum sequi est officia nobis. Excepturi sit earum amet ea et. Et ea laboriosam placeat asperiores cupiditate asperiores ea suscipit. Est qui officia quaerat earum. Adipisci rem voluptatem quia totam perferendis illo laudantium mollitia. Corporis quisquam dignissimos a alias eum. Distinctio quisquam corporis veritatis dolorem consequatur consequuntur et id. Autem vitae qui eum voluptas. Error omnis nulla omnis quos asperiores eum.'
-    },
-    {
-        title: 'Book 2',
-        genre: 'horror | hz',
-        annotation: 'net',
-        body: 'Nemo eum odit velit recusandae accusantium dicta Qui minima ipsam qui ut Eos molestiae itaque ipsam a sint ratione Vitae est hic iure ut deserunt Numquam in quia et dolorem Alias doloribus cumque esse asperiores. Hic odio non aut maxime. Nobis ipsum at voluptas aut Enim soluta at tempore Consectetur quis commodi commodi minus sit.'
-    },
-    {
-        title: 'Book 3',
-        genre: 'sci-fi | kek',
-        annotation: 'mmmmmmmm',
-        body: 'Nobis sint minus molestiae. iste et fuga accusamus Tenetur deserunt delectus ipsum qui consequatur dolor Ratione corporis minus quo placeat Qui ipsam ipsam voluptatibus aliquid odit id. Deleniti aut fugiat suscipit. Nostrum inventore quae est eos voluptatem. Tenetur ipsum et pariatur tempore Iusto labore at molestias Natus quis at dolorem.'
-    }
-]
-
-/***/ }),
-/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "./img/close.png?d4818aa4cc8b83d25ba239f25b775220";
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -753,7 +728,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(49);
+var	fixUrls = __webpack_require__(44);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -1069,31 +1044,30 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_index_vue__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_books_vue__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_book_vue__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_races_vue__ = __webpack_require__(28);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_heroes_vue__ = __webpack_require__(35);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_about_vue__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_main_less__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_main_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_main_less__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_raidap_css__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__style_raidap_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__style_raidap_css__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_router__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pages_index_vue__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_books_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_races_vue__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_heroes_vue__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_about_vue__ = __webpack_require__(36);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_main_less__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__style_main_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__style_main_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_raidap_css__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__style_raidap_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__style_raidap_css__);
 
 
 __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]);
 
 
 
-
+//import book_page from './pages/book.vue';
 
 
 
@@ -1104,14 +1078,14 @@ __WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
   routes: [
     { path: '/index', component: __WEBPACK_IMPORTED_MODULE_2__pages_index_vue__["a" /* default */] },
-    { path: '/books', component: __WEBPACK_IMPORTED_MODULE_3__pages_books_vue__["a" /* default */] },
-    { path: '/books/:id', name: 'book', component: __WEBPACK_IMPORTED_MODULE_4__pages_book_vue__["a" /* default */] },
-    { path: '/races', component: __WEBPACK_IMPORTED_MODULE_5__pages_races_vue__["a" /* default */] },
-    { path: '/heroes', component: __WEBPACK_IMPORTED_MODULE_6__pages_heroes_vue__["a" /* default */] },
-    { path: '/about', component: __WEBPACK_IMPORTED_MODULE_7__pages_about_vue__["a" /* default */] },
+//    { path: '/books', component: books_page },
+//    { path: '/books/:id', name: 'book', component: book_page },
+    { path: '/races', component: __WEBPACK_IMPORTED_MODULE_4__pages_races_vue__["a" /* default */] },
+    { path: '/heroes', component: __WEBPACK_IMPORTED_MODULE_5__pages_heroes_vue__["a" /* default */] },
+    { path: '/about', component: __WEBPACK_IMPORTED_MODULE_6__pages_about_vue__["a" /* default */] },
   ]
 })
-router.replace({ path: '/heroes', redirect: '/' })
+router.replace({ path: '/index', redirect: '/' })
 
 new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
     el: "#app",
@@ -1119,7 +1093,7 @@ new __WEBPACK_IMPORTED_MODULE_0_vue___default.a({
 })
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11316,10 +11290,10 @@ Vue$3.compile = compileToFunctions;
 
 module.exports = Vue$3;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(9)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(8)))
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11346,7 +11320,7 @@ module.exports = g;
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13966,17 +13940,17 @@ if (inBrowser && window.Vue) {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(3)))
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_index_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5c5290c0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_5c5290c0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_index_vue__ = __webpack_require__(15);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(12)
+  __webpack_require__(11)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -14022,13 +13996,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(13);
+var content = __webpack_require__(12);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -14048,7 +14022,7 @@ if(false) {
 }
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -14062,7 +14036,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /**
@@ -14095,7 +14069,7 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports) {
 
 //
@@ -14113,7 +14087,7 @@ module.exports = function listToStyles (parentId, list) {
 module.exports = {};
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14135,14 +14109,16 @@ var staticRenderFns = [
         _c("h1", [_vm._v("Index page")]),
         _c("hr"),
         _c("div", { staticClass: "box" }, [
-          _c("div", { staticClass: "col1" }),
-          _c("div", { staticClass: "col2 center" }, [_vm._v("09.10.2017")]),
-          _c("div", { staticClass: "col8 left" }, [
+          _c("div", { staticClass: "col3 center" }, [_vm._v("09.10.2017")]),
+          _c("div", { staticClass: "col9 left" }, [
             _vm._v("Added this page and shit "),
             _c("br"),
-            _vm._v(" Trying to done book page and book load")
+            _vm._v(" Trying to finish book page and book load")
           ]),
-          _c("div", { staticClass: "col1" })
+          _c("div", { staticClass: "col3 center" }, [_vm._v("12.10.2017")]),
+          _c("div", { staticClass: "col9 left" }, [
+            _vm._v("Added race and heroes pages")
+          ])
         ])
       ]
     )
@@ -14159,17 +14135,17 @@ if (false) {
 }
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_books_vue__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_books_vue__ = __webpack_require__(19);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_books_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_books_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_7bb40578_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_books_vue__ = __webpack_require__(21);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(18)
+  __webpack_require__(17)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -14211,17 +14187,17 @@ if (false) {(function () {
   })
 })()}
 
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
+/* unused harmony default export */ var _unused_webpack_default_export = (Component.exports);
 
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(19);
+var content = __webpack_require__(18);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -14241,7 +14217,7 @@ if(false) {
 }
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -14255,7 +14231,7 @@ exports.push([module.i, "\n#books .book {\n  cursor: pointer;\n  transition: 0.2
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //
@@ -14272,7 +14248,7 @@ exports.push([module.i, "\n#books .book {\n  cursor: pointer;\n  transition: 0.2
 //
 //
 
-var books = __webpack_require__(4);
+var books = __webpack_require__(20);
 
 module.exports = {
     data: function () {
@@ -14281,6 +14257,31 @@ module.exports = {
         };
     }
 };
+
+/***/ }),
+/* 20 */
+/***/ (function(module, exports) {
+
+module.exports = [
+    {
+        title: 'ДП',
+        genre: 'novel | adventure',
+        annotation: 'Heh',
+        body: 'Ipsum sequi est officia nobis. Excepturi sit earum amet ea et. Et ea laboriosam placeat asperiores cupiditate asperiores ea suscipit. Est qui officia quaerat earum. Adipisci rem voluptatem quia totam perferendis illo laudantium mollitia. Corporis quisquam dignissimos a alias eum. Distinctio quisquam corporis veritatis dolorem consequatur consequuntur et id. Autem vitae qui eum voluptas. Error omnis nulla omnis quos asperiores eum.'
+    },
+    {
+        title: 'Book 2',
+        genre: 'horror | hz',
+        annotation: 'net',
+        body: 'Nemo eum odit velit recusandae accusantium dicta Qui minima ipsam qui ut Eos molestiae itaque ipsam a sint ratione Vitae est hic iure ut deserunt Numquam in quia et dolorem Alias doloribus cumque esse asperiores. Hic odio non aut maxime. Nobis ipsum at voluptas aut Enim soluta at tempore Consectetur quis commodi commodi minus sit.'
+    },
+    {
+        title: 'Book 3',
+        genre: 'sci-fi | kek',
+        annotation: 'mmmmmmmm',
+        body: 'Nobis sint minus molestiae. iste et fuga accusamus Tenetur deserunt delectus ipsum qui consequatur dolor Ratione corporis minus quo placeat Qui ipsam ipsam voluptatibus aliquid odit id. Deleniti aut fugiat suscipit. Nostrum inventore quae est eos voluptatem. Tenetur ipsum et pariatur tempore Iusto labore at molestias Natus quis at dolorem.'
+    }
+]
 
 /***/ }),
 /* 21 */
@@ -14347,182 +14348,13 @@ module.exports = __webpack_require__.p + "./img/book.png?74706ace7e315a10b0e10d7
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_book_vue__ = __webpack_require__(26);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_book_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_book_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_03df3d0b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_book_vue__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e6bab2e0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_races_vue__ = __webpack_require__(28);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(24)
-}
-var normalizeComponent = __webpack_require__(2)
-/* script */
-
-/* template */
-
-/* template functional */
-  var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_book_vue___default.a,
-  __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_03df3d0b_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_book_vue__["a" /* default */],
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "src\\pages\\book.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-03df3d0b", Component.options)
-  } else {
-    hotAPI.reload("data-v-03df3d0b", Component.options)
-' + '  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-/* harmony default export */ __webpack_exports__["a"] = (Component.exports);
-
-
-/***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__(25);
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var update = __webpack_require__(1)("6af82c96", content, false);
-// Hot Module Replacement
-if(false) {
- // When the styles change, update the <style> tags
- if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03df3d0b\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/less-loader/dist/cjs.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./book.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-03df3d0b\",\"scoped\":false,\"hasInlineConfig\":false}!../../node_modules/less-loader/dist/cjs.js!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./book.vue");
-     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-     update(newContent);
-   });
- }
- // When the module is disposed, remove the <style> tags
- module.hot.dispose(function() { update(); });
-}
-
-/***/ }),
-/* 25 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(0)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "\n#book .text {\n  text-indent: 40px;\n  line-height: 1.5em;\n}\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 26 */
-/***/ (function(module, exports, __webpack_require__) {
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var books = __webpack_require__(4);
-
-module.exports = {
-    data: function () {
-        return {
-            books: books,
-            book: null
-        };
-    },
-    created: function () {
-        var bookId = this.$route.params.id;
-        this.book = this.books[bookId];
-    }
-};
-
-/***/ }),
-/* 27 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container center", attrs: { id: "book" } },
-    [
-      _c("h1", [_vm._v(_vm._s(_vm.book.title))]),
-      _c("p", [_vm._v(_vm._s(_vm.book.annotation))]),
-      _c("hr"),
-      _c("div", { staticClass: "box" }, [
-        _c("div", { staticClass: "col1" }),
-        _c("div", { staticClass: "col10" }, [
-          _c("p", { staticClass: "left text" }, [_vm._v(_vm._s(_vm.book.body))])
-        ]),
-        _c("div", { staticClass: "col1" })
-      ]),
-      _c("router-link", { attrs: { to: "/books" } }, [_vm._v("<< back")])
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-var esExports = { render: render, staticRenderFns: staticRenderFns }
-/* harmony default export */ __webpack_exports__["a"] = (esExports);
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-03df3d0b", esExports)
-  }
-}
-
-/***/ }),
-/* 28 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__ = __webpack_require__(31);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_races_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_e6bab2e0_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_races_vue__ = __webpack_require__(34);
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(29)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -14568,13 +14400,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 29 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(30);
+var content = __webpack_require__(25);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -14594,7 +14426,7 @@ if(false) {
 }
 
 /***/ }),
-/* 30 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -14602,13 +14434,13 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n#races .box {\n  margin-top: 20px;\n}\n#races .box img {\n  width: 84px;\n  cursor: pointer;\n}\n#races .box h2 {\n  font-weight: 300;\n  font-size: 28px;\n  margin-top: 12px;\n  padding-top: 4px;\n  color: #999;\n}\n#races .box h2:hover {\n  color: white;\n  cursor: pointer;\n}\n#races .box hr {\n  margin-top: 11px;\n  width: 95px;\n}\n#races .box ul {\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  list-style: none;\n  margin-top: 20px;\n}\n#races .box ul li {\n  font-weight: 300;\n  font-size: 20px;\n  color: #999;\n  padding-bottom: 6px;\n}\n#races .box ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#races .closer {\n  background-image: url(" + __webpack_require__(5) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#races h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#races p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n", ""]);
+exports.push([module.i, "\n#races .box {\n  margin-top: 20px;\n}\n#races .box img {\n  width: 84px;\n  cursor: pointer;\n}\n#races .box h2 {\n  font-weight: 300;\n  font-size: 28px;\n  margin-top: 12px;\n  padding-top: 4px;\n  color: #999;\n}\n#races .box h2:hover {\n  color: white;\n  cursor: pointer;\n}\n#races .box hr {\n  margin-top: 11px;\n  width: 95px;\n}\n#races .box ul {\n  margin: 0;\n  padding: 0;\n  text-align: center;\n  list-style: none;\n  margin-top: 20px;\n}\n#races .box ul li {\n  font-weight: 300;\n  font-size: 20px;\n  color: #999;\n  padding-bottom: 6px;\n}\n#races .box ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#races .closer {\n  background-image: url(" + __webpack_require__(4) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#races h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#races p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 31 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //
@@ -14630,7 +14462,7 @@ exports.push([module.i, "\n#races .box {\n  margin-top: 20px;\n}\n#races .box im
 //
 //
 
-var races = __webpack_require__(32);
+var races = __webpack_require__(27);
 
 module.exports = {
     data: function () {
@@ -14664,60 +14496,38 @@ module.exports = {
 };
 
 /***/ }),
-/* 32 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = [
     {
-        title: 'Pro',
-        text: 'Pro text',
+        title: 'Сахи',
+        text: 'Сахи - коренные жители Айморы, Дикой пустыни, что раскинулась в центре материка Мирра. Лишённые шерсти на хвостах, они имеют оттенки кожи от ярко-красного до зеленоватого. Иные могут быть тёмными, как сажа. У некоторых особо темпераментных сахи к двадцати-тридцати годам выстают большие рога, за которыми они бережно ухаживают.',
         subraces: [
             {
-                title: 'Ser',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ad expedita aliquam ex voluptates! Soluta quo quis ducimus natus eligendi ea praesentium adipisci, consectetur vero, dolorum molestias sint voluptas autem cupiditate illum mollitia ipsum veniam labore nesciunt ipsam. Esse aliquam possimus natus nisi exercitationem impedit repellat molestiae quos voluptatibus deleniti hic laborum voluptate blanditiis consequuntur nihil molestias fugit omnis ex, praesentium maxime quasi facilis et nemo. Optio quo esse obcaecati exercitationem repellat corrupti iure ad, ab quibusdam id sed facilis consequatur doloribus nisi voluptate nostrum quisquam neque. Error natus voluptates, quae quisquam modi veritatis vero sint commodi expedita ex sapiente.'
+                title: 'Скаматы',
+                text: 'Скаматы - одна из немногочисленных подрас сахи. Довольно спокойные и мирные, они обитают в отдалённых южных городах. Их почти невозможно встретить в Мериаде и других крупных странах. У скаматов большие перепончатые ушки, а на кончиках хвостов есть пушистые кисточки. Кожа золотистая.'
             },
             {
-                title: 'Et',
-                text: 'Et text'
-            },
-            {
-                title: 'Ra',
-                text: 'Ra text'
+                title: 'Салары',
+                text: 'Салары - таинственные и молчаливые жители Гарши. Обладая флегматичным характером, они, тем не менее, держат в подчинении меньшие народы на своей территории, ратуют за традиционное для саларов рабовладение. У саларов зеленовая кожа и, чаще всего, рыжие волосы. '
             }
         ]
     },
     {
-        title: 'Second',
-        text: 'Second lorem',
+        title: 'Ахомиры',
+        text: 'Ахомиры - бесхвостые меры, из-за чего остальные расы относятся к ним с сильным подозрением, так как читать эмоции без хвостов для них не так просто. Традиционно ахомиры жили на юге Манстера и Шаатрана, но после Мировой войны колонизировали Мирру и стояли у истоков создания Единой Конфедерации Мирры. После её распада обосновались, большей частью, на востоке, за Бастионами.',
         subraces: [
             {
-                title: 'А',
-                text: 'lorem A'
-            },
-            {
-                title: 'B',
-                text: 'lorem B'
-            },
-            {
-                title: 'C',
-                text: 'lorem C'
+                title: 'Риаты',
+                text: 'Риаты - самые яркие представители ахомиров. Высокие, суровые, темноволосые или рыжие, они внушают ужас своей дисциплиной и твёрдостью намерений.'
             }
         ]
     },
-    { title: 'Third' },
-    { title: 'Four' },
-    { title: 'Five' },
-    { title: 'Six' }
 ]
 
 /***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "./img/race.png?62ada63a91976f37e5c78cf3e48d5858";
-
-/***/ }),
-/* 34 */
+/* 28 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -14734,7 +14544,7 @@ var render = function() {
       _vm._l(_vm.races, function(race, index_race) {
         return _c("div", { staticClass: "col2 center" }, [
           _c("img", {
-            attrs: { src: __webpack_require__(33) },
+            attrs: { src: __webpack_require__(29) },
             on: {
               click: function($event) {
                 _vm.show_race(index_race)
@@ -14800,17 +14610,23 @@ if (false) {
 }
 
 /***/ }),
-/* 35 */
+/* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "./img/race.png?62ada63a91976f37e5c78cf3e48d5858";
+
+/***/ }),
+/* 30 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_heroes_vue__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_heroes_vue__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_heroes_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_heroes_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3e45936c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_heroes_vue__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_3e45936c_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_heroes_vue__ = __webpack_require__(35);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(36)
+  __webpack_require__(31)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -14856,13 +14672,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 36 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(37);
+var content = __webpack_require__(32);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -14882,7 +14698,7 @@ if(false) {
 }
 
 /***/ }),
-/* 37 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -14890,13 +14706,13 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#heroes input,\n#heroes select {\n  width: 400px;\n  font-size: 16px;\n  background-color: transparent;\n  border: none;\n  border: 1px solid white;\n  border-radius: 5px;\n  color: white;\n  padding: 10px 10px;\n  margin: 0 auto;\n}\n#heroes input {\n  width: 400px;\n  width: calc(101%);\n}\n#heroes select {\n  width: 220px;\n  width: 100%;\n  background: transparent;\n  -webkit-appearance: none;\n}\n#heroes select option {\n  background-color: black;\n}\n#heroes ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n#heroes ul li {\n  display: inline-block;\n  font-size: 20px;\n  padding-left: 10px;\n  padding-right: 10px;\n  transition: 0.25s ease;\n}\n#heroes ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#heroes .hero {\n  border-bottom: 2px solid #999;\n  transition: 0.25s ease;\n}\n#heroes .hero:hover {\n  color: white;\n  border-color: white;\n  cursor: pointer;\n}\n#heroes .closer {\n  background-image: url(" + __webpack_require__(5) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#heroes h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#heroes p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes div.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes .white {\n  color: white;\n}\n#heroes .label {\n  padding-top: 14px;\n}\n", ""]);
+exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#heroes input,\n#heroes select {\n  width: 400px;\n  font-size: 16px;\n  background-color: transparent;\n  border: none;\n  border: 1px solid white;\n  border-radius: 5px;\n  color: white;\n  padding: 10px 10px;\n  margin: 0 auto;\n}\n#heroes input {\n  width: 400px;\n  width: calc(101%);\n}\n#heroes select {\n  width: 220px;\n  width: 100%;\n  background: transparent;\n  -webkit-appearance: none;\n}\n#heroes select option {\n  background-color: black;\n}\n#heroes ul {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n}\n#heroes ul li {\n  display: inline-block;\n  font-size: 20px;\n  padding-left: 10px;\n  padding-right: 10px;\n  transition: 0.25s ease;\n}\n#heroes ul li:hover {\n  color: white;\n  cursor: pointer;\n}\n#heroes .hero {\n  border-bottom: 2px solid #999;\n  transition: 0.25s ease;\n  font-size: 20px;\n}\n#heroes .hero:hover {\n  color: white;\n  border-color: white;\n  cursor: pointer;\n}\n#heroes .closer {\n  background-image: url(" + __webpack_require__(4) + ");\n  background-size: 100%;\n  width: 28px;\n  height: 28px;\n  position: relative;\n  top: 64px;\n  cursor: pointer;\n  float: right;\n}\n#heroes h2.title {\n  margin-top: 66px;\n  font-size: 30px;\n  font-weight: 300;\n  color: white;\n}\n#heroes p.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes div.text {\n  margin-top: 20px;\n  color: #999;\n  font-size: 20px;\n}\n#heroes .white {\n  color: white;\n}\n#heroes .label {\n  padding-top: 14px;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 38 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //
@@ -14991,7 +14807,7 @@ exports.push([module.i, "\n.col3 {\n  /*        background-color: red;*/\n}\n#he
 //
 //
 
-var heroes = __webpack_require__(39);
+var heroes = __webpack_require__(34);
 
 function clear() {
     alert('te');
@@ -15080,7 +14896,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 39 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = [
@@ -15127,7 +14943,7 @@ module.exports = [
 ]
 
 /***/ }),
-/* 40 */
+/* 35 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15389,17 +15205,17 @@ if (false) {
 }
 
 /***/ }),
-/* 41 */
+/* 36 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_about_vue__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_about_vue__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_about_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__babel_loader_node_modules_vue_loader_lib_selector_type_script_index_0_bustCache_about_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bc2464a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_about_vue__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__node_modules_vue_loader_lib_template_compiler_index_id_data_v_9bc2464a_hasScoped_false_buble_transforms_node_modules_vue_loader_lib_template_compiler_preprocessor_engine_pug_node_modules_vue_loader_lib_selector_type_template_index_0_bustCache_about_vue__ = __webpack_require__(40);
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(42)
+  __webpack_require__(37)
 }
 var normalizeComponent = __webpack_require__(2)
 /* script */
@@ -15445,13 +15261,13 @@ if (false) {(function () {
 
 
 /***/ }),
-/* 42 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(43);
+var content = __webpack_require__(38);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -15471,7 +15287,7 @@ if(false) {
 }
 
 /***/ }),
-/* 43 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -15485,7 +15301,7 @@ exports.push([module.i, "", ""]);
 
 
 /***/ }),
-/* 44 */
+/* 39 */
 /***/ (function(module, exports) {
 
 //
@@ -15499,7 +15315,7 @@ exports.push([module.i, "", ""]);
 module.exports = {};
 
 /***/ }),
-/* 45 */
+/* 40 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -15536,13 +15352,13 @@ if (false) {
 }
 
 /***/ }),
-/* 46 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(47);
+var content = __webpack_require__(42);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -15550,7 +15366,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(6)(content, options);
+var update = __webpack_require__(5)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -15567,7 +15383,7 @@ if(false) {
 }
 
 /***/ }),
-/* 47 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);
@@ -15575,19 +15391,19 @@ exports = module.exports = __webpack_require__(0)(undefined);
 
 
 // module
-exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(" + __webpack_require__(48) + ");\n  font-family: 'Exo 2', sans-serif;\n  font-weight: 300;\n  color: #999;\n}\n@media screen and (min-width: 600px) {\n  nav {\n    width: 100vw;\n  }\n}\n@media screen and (min-width: 960px) {\n  nav {\n    width: 960px;\n  }\n}\nnav {\n  background-color: transparent;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n  padding: 0;\n}\nnav .router-link {\n  display: inline-block;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 30px;\n  padding-right: 30px;\n  border-bottom: 2px solid transparent;\n  font-size: 16px;\n  text-transform: uppercase;\n  text-decoration: none;\n  color: #999;\n  transition: 0.2s ease;\n}\nnav .router-link:hover {\n  color: white;\n  border-bottom: 2px solid white;\n}\n.container {\n  background-color: transparent;\n  padding-top: 20px;\n  padding-bottom: 20px;\n}\nh1,\nh2,\nh3,\np {\n  margin: 0;\n  padding: 0;\n}\nh1 {\n  margin-top: 10px !important;\n  color: white;\n  text-align: center;\n  font-weight: 300;\n  font-size: 30px;\n}\nhr {\n  border-color: #999;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity 0.1s;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
+exports.push([module.i, "body {\n  margin: 0;\n  padding: 0;\n  background-image: url(" + __webpack_require__(43) + ");\n  font-family: 'Exo 2', sans-serif;\n  font-weight: 300;\n  color: #999;\n}\n@media screen and (min-width: 600px) {\n  nav {\n    width: 100vw;\n  }\n}\n@media screen and (min-width: 960px) {\n  nav {\n    width: 960px;\n  }\n}\nnav {\n  background-color: transparent;\n  display: block;\n  text-align: center;\n  margin: 0 auto;\n  padding: 0;\n}\nnav .router-link {\n  display: inline-block;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  padding-left: 30px;\n  padding-right: 30px;\n  border-bottom: 2px solid transparent;\n  font-size: 16px;\n  text-transform: uppercase;\n  text-decoration: none;\n  color: #999;\n  transition: 0.2s ease;\n}\nnav .router-link:hover {\n  color: white;\n  border-bottom: 2px solid white;\n}\n.container {\n  background-color: transparent;\n  padding-top: 20px;\n  padding-bottom: 20px;\n}\nh1,\nh2,\nh3,\np {\n  margin: 0;\n  padding: 0;\n}\nh1 {\n  margin-top: 10px !important;\n  color: white;\n  text-align: center;\n  font-weight: 300;\n  font-size: 30px;\n}\nhr {\n  border-color: #999;\n}\n.fade-enter-active,\n.fade-leave-active {\n  transition: opacity 0.1s;\n}\n.fade-enter,\n.fade-leave-to {\n  opacity: 0;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 48 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "./img/bg.jpg?27bd4c56e5b1e09b7c63fae80a1d960b";
 
 /***/ }),
-/* 49 */
+/* 44 */
 /***/ (function(module, exports) {
 
 
@@ -15682,13 +15498,13 @@ module.exports = function (css) {
 
 
 /***/ }),
-/* 50 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(51);
+var content = __webpack_require__(46);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -15696,7 +15512,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(6)(content, options);
+var update = __webpack_require__(5)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -15713,7 +15529,7 @@ if(false) {
 }
 
 /***/ }),
-/* 51 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(0)(undefined);

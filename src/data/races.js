@@ -1,42 +1,26 @@
 module.exports = [
     {
-        title: 'Pro',
-        text: 'Pro text',
+        title: 'Сахи',
+        text: 'Сахи - коренные жители Айморы, Дикой пустыни, что раскинулась в центре материка Мирра. Лишённые шерсти на хвостах, они имеют оттенки кожи от ярко-красного до зеленоватого. Иные могут быть тёмными, как сажа. У некоторых особо темпераментных сахи к двадцати-тридцати годам выстают большие рога, за которыми они бережно ухаживают.',
         subraces: [
             {
-                title: 'Ser',
-                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ad expedita aliquam ex voluptates! Soluta quo quis ducimus natus eligendi ea praesentium adipisci, consectetur vero, dolorum molestias sint voluptas autem cupiditate illum mollitia ipsum veniam labore nesciunt ipsam. Esse aliquam possimus natus nisi exercitationem impedit repellat molestiae quos voluptatibus deleniti hic laborum voluptate blanditiis consequuntur nihil molestias fugit omnis ex, praesentium maxime quasi facilis et nemo. Optio quo esse obcaecati exercitationem repellat corrupti iure ad, ab quibusdam id sed facilis consequatur doloribus nisi voluptate nostrum quisquam neque. Error natus voluptates, quae quisquam modi veritatis vero sint commodi expedita ex sapiente.'
+                title: 'Скаматы',
+                text: 'Скаматы - одна из немногочисленных подрас сахи. Довольно спокойные и мирные, они обитают в отдалённых южных городах. Их почти невозможно встретить в Мериаде и других крупных странах. У скаматов большие перепончатые ушки, а на кончиках хвостов есть пушистые кисточки. Кожа золотистая.'
             },
             {
-                title: 'Et',
-                text: 'Et text'
-            },
-            {
-                title: 'Ra',
-                text: 'Ra text'
+                title: 'Салары',
+                text: 'Салары - таинственные и молчаливые жители Гарши. Обладая флегматичным характером, они, тем не менее, держат в подчинении меньшие народы на своей территории, ратуют за традиционное для саларов рабовладение. У саларов зеленовая кожа и, чаще всего, рыжие волосы. '
             }
         ]
     },
     {
-        title: 'Second',
-        text: 'Second lorem',
+        title: 'Ахомиры',
+        text: 'Ахомиры - бесхвостые меры, из-за чего остальные расы относятся к ним с сильным подозрением, так как читать эмоции без хвостов для них не так просто. Традиционно ахомиры жили на юге Манстера и Шаатрана, но после Мировой войны колонизировали Мирру и стояли у истоков создания Единой Конфедерации Мирры. После её распада обосновались, большей частью, на востоке, за Бастионами.',
         subraces: [
             {
-                title: 'А',
-                text: 'lorem A'
-            },
-            {
-                title: 'B',
-                text: 'lorem B'
-            },
-            {
-                title: 'C',
-                text: 'lorem C'
+                title: 'Риаты',
+                text: 'Риаты - самые яркие представители ахомиров. Высокие, суровые, темноволосые или рыжие, они внушают ужас своей дисциплиной и твёрдостью намерений.'
             }
         ]
     },
-    { title: 'Third' },
-    { title: 'Four' },
-    { title: 'Five' },
-    { title: 'Six' }
 ]

@@ -10,7 +10,7 @@ module.exports = {
     entry: PATHS.source + '/index.js',
     output: {
         path: PATHS.build,
-        filename: 'app/build.js'
+        filename: './app/build.js'
     },
     plugins: [
         new HtmlWebpackPlugin({
