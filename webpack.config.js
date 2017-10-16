@@ -14,7 +14,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: PATHS.source + '/index.html'
+            template: PATHS.source + '/index.html',
+            filename: 'build.html'
         })
     ],
     module: {
