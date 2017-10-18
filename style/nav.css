@@ -1,0 +1,28 @@
+nav {
+  border-bottom: 1px solid #999;
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+nav a {
+  font-family: 'Roboto Condensed', sans-serif;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #555;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 12px;
+  transition: 0.25s ease;
+}
+nav a:hover {
+  color: white;
+  background-color: #555;
+}
+nav a.logout {
+  color: crimson;
+}
+nav a.logout:hover {
+  color: white;
+}

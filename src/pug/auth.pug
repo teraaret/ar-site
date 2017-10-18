@@ -1,0 +1,20 @@
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        title Authorization
+        link(href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet")
+        link(rel="stylesheet" href="../style/auth.css")
+    body
+        .container
+            a(href="/")
+                h1 augustraido
+            form(action="./auth.php" method="post")
+                input(type="text" name="login" autofocus autocomplete="off")
+                input(type="submit" value="go")
+            .line
+                a(href="mailto:hello@augustraido.ru" class="link")
+                    img(src="img/mail.png" width="32px" alt="")
+                a(href="https://augustraido.deviantart.com/gallery/" target="_blank" class="link")
+                    img(src="img/da_logo.png" width="32px" alt="")
+                a(href="https://github.com/teraaret/" class="link" target="_blank")
+                    img(src="img/github.png" width="32px" alt="")

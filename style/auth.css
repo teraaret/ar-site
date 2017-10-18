@@ -1,0 +1,95 @@
+body {
+  background-color: #111;
+  font-family: 'Bellefair', serif;
+}
+@media screen and (max-height: 800px) {
+  .container {
+    margin-top: 100px;
+  }
+}
+@media screen and (min-height: 800px) {
+  .container {
+    margin-top: 250px;
+  }
+}
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 25px;
+  min-width: 100px;
+  max-width: 960px;
+  width: 100%;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
+  text-align: center;
+}
+.container a {
+  text-decoration: none;
+}
+.container h1 {
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 50px;
+  display: inline-block;
+  font-size: 50px;
+  font-weight: 300;
+  color: #999;
+  color: #DC113E;
+  transition: 0.25s ease;
+}
+.container h1:hover {
+  color: #DC113E;
+  text-shadow: 0 0 50px #DC113E;
+  animation: shake 0.1s linear infinite;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateX(1px) translateY(0.5px) rotate(0.125deg);
+  }
+  75% {
+    transform: translateX(-1px) translateY(-0.5px) rotate(-0.125deg);
+  }
+  100% {
+    transform: translateX(0px) translateY(0px) rotate(0deg);
+  }
+}
+.container input {
+  display: block;
+  margin: 0 auto;
+  margin-top: 5px;
+  width: 200px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 10px;
+  color: white;
+  font-size: 16px;
+  transition: 0.25s ease;
+}
+.container input[type='submit'] {
+  color: white;
+}
+.container input[type='submit']:hover {
+  background-color: #DC113E;
+  cursor: pointer;
+}
+.container input[type='text']:focus {
+  background-color: #333;
+}
+.container .line {
+  display: block;
+  text-align: center;
+  margin-top: 50px;
+  padding-bottom: 25px;
+}
+.container .link {
+  padding-left: 5px;
+  padding-right: 5px;
+  transition: 0.25s ease;
+}
+.container .link:hover {
+  filter: brightness(3);
+}

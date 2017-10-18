@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteRule ^$ index.php?page=index
+RewriteRule ^gallery$ index.php?page=gallery
+
+RewriteRule ^auth$ index.php?page=auth
