@@ -26,7 +26,6 @@ if ( $_COOKIE["session"] == "admin" )
 
 else 
 {
-    echo hash("sha256", $_POST['login']);
     include './views/auth.html';
 }
 
