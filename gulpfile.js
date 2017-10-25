@@ -2,8 +2,9 @@ var gulp = require('gulp');
 var pug = require('gulp-pug');
 var less = require('gulp-less');
 var watch = require('gulp-watch');
-const pretty = require('gulp-pretty');
+var pretty = require('gulp-pretty');
 var semi = require('gulp-semi').remove;
+
 
 gulp.task('html', function(){
   return gulp.src('src/pug/*.pug')

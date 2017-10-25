@@ -2,97 +2,109 @@ body {
   margin: 0;
   padding: 0;
 }
-@media screen and (min-width: 960px) {
-  .container {
-    width: 960px;
-  }
-}
-@media screen and (max-width: 960px) {
-  .container {
-    width: 100vw;
-  }
-}
-.container {
-  min-height: 100%;
-  padding: 0;
+.raidap {
+  @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+  font-family: 'Roboto Condensed', sans-serif;
+  min-width: 100px;
+  max-width: 960px;
+  width: 100%;
   margin: 0 auto;
+  padding: 0;
+  min-height: 100%;
 }
-.container.test .col1,
-.container.test .col2,
-.container.test .col3,
-.container.test .col4,
-.container.test .col5,
-.container.test .col6,
-.container.test .col7,
-.container.test .col8,
-.container.test .col9,
-.container.test .col10,
-.container.test .col11,
-.container.test .col12,
-.container.test .col {
+.raidap.test .col1,
+.raidap.test .col2,
+.raidap.test .col3,
+.raidap.test .col4,
+.raidap.test .col5,
+.raidap.test .col6,
+.raidap.test .col7,
+.raidap.test .col8,
+.raidap.test .col9,
+.raidap.test .col10,
+.raidap.test .col11,
+.raidap.test .col12,
+.raidap.test .col {
   background-color: peachpuff;
 }
-.container nav {
-  background-color: #999;
+.raidap *.up {
+  text-transform: uppercase;
+}
+.raidap *.cap {
+  text-transform: capitalize;
+}
+.raidap *.bold {
+  font-weight: 600;
+}
+.raidap nav {
   margin: 0;
   padding: 0;
+  text-align: center;
 }
-.container nav ul {
+.raidap nav ul {
   margin: 0;
   list-style: none;
 }
-.container nav ul a {
+.raidap nav ul a {
   text-decoration: none;
 }
-.container nav ul li {
+.raidap nav ul li {
   padding: 10px 0 10px;
   padding-left: 20px;
   padding-right: 20px;
   display: inline-block;
-  text-transform: uppercase;
   transition: 0.25s ease;
 }
-.container nav ul li:hover {
-  background-color: red;
-}
-.container h1,
-.container h2,
-.container h3,
-.container h4,
-.container h5,
-.container h6,
-.container p {
+.raidap h1,
+.raidap h2,
+.raidap h3,
+.raidap h4,
+.raidap h5,
+.raidap h6,
+.raidap p {
   margin: 0;
   padding: 0;
   padding-bottom: 10px;
 }
-.container.center {
-  text-align: center !important;
+.raidap h1.center,
+.raidap h2.center,
+.raidap h3.center,
+.raidap h4.center,
+.raidap h5.center,
+.raidap h6.center,
+.raidap p.center {
+  text-align: center;
 }
-.container.left {
-  text-align: left !important;
+.raidap h1.right,
+.raidap h2.right,
+.raidap h3.right,
+.raidap h4.right,
+.raidap h5.right,
+.raidap h6.right,
+.raidap p.right {
+  text-align: right;
 }
-.container.right {
-  text-align: right!important;
+.raidap p {
+  line-height: 1.25em;
 }
-.container .box {
+.raidap .box {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 }
-.container .box .col1,
-.container .box .col2,
-.container .box .col3,
-.container .box .col4,
-.container .box .col5,
-.container .box .col6,
-.container .box .col7,
-.container .box .col8,
-.container .box .col9,
-.container .box .col10,
-.container .box .col11,
-.container .box .col12,
-.container .box .col {
+.raidap .box .col1,
+.raidap .box .col2,
+.raidap .box .col3,
+.raidap .box .col4,
+.raidap .box .col5,
+.raidap .box .col6,
+.raidap .box .col7,
+.raidap .box .col8,
+.raidap .box .col9,
+.raidap .box .col10,
+.raidap .box .col11,
+.raidap .box .col12,
+.raidap .box .col {
   flex: auto;
   text-align: left;
   margin: 1.5px 0;
@@ -101,72 +113,102 @@ body {
   margin-left: 0.15%;
   margin-right: 0.15%;
 }
-.container .box .col1.center,
-.container .box .col2.center,
-.container .box .col3.center,
-.container .box .col4.center,
-.container .box .col5.center,
-.container .box .col6.center,
-.container .box .col7.center,
-.container .box .col8.center,
-.container .box .col9.center,
-.container .box .col10.center,
-.container .box .col11.center,
-.container .box .col12.center,
-.container .box .col.center {
-  text-align: center;
-}
-.container .box .col1.right,
-.container .box .col2.right,
-.container .box .col3.right,
-.container .box .col4.right,
-.container .box .col5.right,
-.container .box .col6.right,
-.container .box .col7.right,
-.container .box .col8.right,
-.container .box .col9.right,
-.container .box .col10.right,
-.container .box .col11.right,
-.container .box .col12.right,
-.container .box .col.right {
-  text-align: right;
-}
-.container .box .col1 {
-  width: 8%;
-}
-.container .box .col2 {
-  width: 14%;
-}
-.container .box .col3 {
-  width: 24%;
-}
-.container .box .col4 {
-  width: 32%;
-}
-.container .box .col5 {
-  width: 36%;
-}
-.container .box .col6 {
-  width: 48%;
-}
-.container .box .col7 {
-  width: 56%;
-}
-.container .box .col8 {
-  width: 64%;
-}
-.container .box .col9 {
-  width: 68%;
-}
-.container .box .col10 {
-  width: 72%;
-}
-.container .box .col11 {
-  width: 90%;
-}
-.container .box .col12 {
+.raidap .box .col1 img,
+.raidap .box .col2 img,
+.raidap .box .col3 img,
+.raidap .box .col4 img,
+.raidap .box .col5 img,
+.raidap .box .col6 img,
+.raidap .box .col7 img,
+.raidap .box .col8 img,
+.raidap .box .col9 img,
+.raidap .box .col10 img,
+.raidap .box .col11 img,
+.raidap .box .col12 img,
+.raidap .box .col img {
   width: 100%;
 }
-.container .box .col {
+.raidap .box .col1 img.round,
+.raidap .box .col2 img.round,
+.raidap .box .col3 img.round,
+.raidap .box .col4 img.round,
+.raidap .box .col5 img.round,
+.raidap .box .col6 img.round,
+.raidap .box .col7 img.round,
+.raidap .box .col8 img.round,
+.raidap .box .col9 img.round,
+.raidap .box .col10 img.round,
+.raidap .box .col11 img.round,
+.raidap .box .col12 img.round,
+.raidap .box .col img.round {
+  border-radius: 50%;
+}
+.raidap .box .col1.center,
+.raidap .box .col2.center,
+.raidap .box .col3.center,
+.raidap .box .col4.center,
+.raidap .box .col5.center,
+.raidap .box .col6.center,
+.raidap .box .col7.center,
+.raidap .box .col8.center,
+.raidap .box .col9.center,
+.raidap .box .col10.center,
+.raidap .box .col11.center,
+.raidap .box .col12.center,
+.raidap .box .col.center {
+  text-align: center;
+}
+.raidap .box .col1.right,
+.raidap .box .col2.right,
+.raidap .box .col3.right,
+.raidap .box .col4.right,
+.raidap .box .col5.right,
+.raidap .box .col6.right,
+.raidap .box .col7.right,
+.raidap .box .col8.right,
+.raidap .box .col9.right,
+.raidap .box .col10.right,
+.raidap .box .col11.right,
+.raidap .box .col12.right,
+.raidap .box .col.right {
+  text-align: right;
+}
+.raidap .box .col1 {
+  width: 8%;
+}
+.raidap .box .col2 {
+  width: 14%;
+}
+.raidap .box .col3 {
+  width: 24%;
+}
+.raidap .box .col4 {
+  width: 32%;
+}
+.raidap .box .col5 {
+  width: 36%;
+}
+.raidap .box .col6 {
+  width: 48%;
+}
+.raidap .box .col7 {
+  width: 56%;
+}
+.raidap .box .col8 {
+  width: 64%;
+}
+.raidap .box .col9 {
+  width: 68%;
+}
+.raidap .box .col10 {
+  width: 72%;
+}
+.raidap .box .col11 {
+  width: 90%;
+}
+.raidap .box .col12 {
+  width: 100%;
+}
+.raidap .box .col {
   width: auto;
 }
