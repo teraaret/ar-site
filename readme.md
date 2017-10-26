@@ -1,6 +1,5 @@
-# Site
+# AR site
 
-There are two versions of site: php-version and vue-version
+Absolutely secret project!
 
-- [vue version](https://github.com/teraaret/ar-site/tree/vue-version)
-- [php version](https://github.com/teraaret/ar-site/tree/php-version)
+There are [old vue version](https://github.com/teraaret/ar-site/tree/vue-version) of this site
