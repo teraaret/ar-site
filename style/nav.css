@@ -1,15 +1,16 @@
 nav {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid #eee;
   text-align: center;
   display: block;
   margin-bottom: 20px;
+  background-color: rgba(0, 0, 0, 0.66);
 }
 nav a {
   font-family: 'Roboto Condensed', sans-serif;
   display: inline-block;
   text-transform: uppercase;
   text-decoration: none;
-  color: #555;
+  color: #eee;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 15px;

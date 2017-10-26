@@ -1,5 +1,3 @@
-# php-version on ar site
+# php-version of ar site
 
-24.10.2017
-
-- Adds sha256 password;
+Absolutly secret project!

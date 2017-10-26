@@ -1,5 +1,10 @@
 RewriteEngine On
-RewriteRule ^$ index.php?page=index
+
+ErrorDocument 404 /404.php
+
+RewriteRule ^$ index.php?page=news
+RewriteRule ^setting$ index.php?page=setting
 RewriteRule ^gallery$ index.php?page=gallery
+# RewriteRule ^books$ index.php?page=books
 
 RewriteRule ^auth$ index.php?page=auth
