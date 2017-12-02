@@ -27,3 +27,7 @@
 1. Create form to adding news;
 1. Fill **setting** page about charactets;
 1. Place links to texts on **litera**;
+
+## 3.12.2017
+
+- Now it is public site with index and blog pages and links to DA gallery and mail;
