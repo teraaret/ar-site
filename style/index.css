@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100');
 body {
   margin: 0;
   padding: 0;
@@ -7,7 +8,7 @@ body {
   margin: 0 auto;
   margin-top: 50px;
   min-width: 100px;
-  max-width: 960px;
+  max-width: 900px;
 }
 h1 {
   text-align: center;
@@ -37,6 +38,17 @@ a:hover {
 }
 .item img:hover {
   filter: brightness(1.4);
+}
+.item p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 100px;
+  color: white;
+  text-shadow: 0 0 10px black;
+  position: absolute;
+  top: 140px;
+  text-align: center;
+  width: 300px;
+  pointer-events: none;
 }
 a {
   text-decoration: none;

@@ -1,0 +1,30 @@
+html(lang="ru")
+    head
+        meta(charset="UTF-8")
+        title August Raido Blog
+        meta( name="description" content="Augustraido site with blog and art")
+        meta( name="keywords" content="Augustraido, august, raido, art, blog")
+        link(href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet")
+        link(rel="stylesheet" href="../style/santa.css")
+    body
+        .container
+            h1
+                a(href="/") augustraido
+                span / secret_santa
+            .post
+                h2 Привет
+                p Эта страница была создана, чтобы покончить с несовершенством мира и наконец-то провести "Тайного санту"!
+                hr
+            img.santa(src="../img/santa.jpg")
+            form(action="../add" method="post")
+                p Имя:
+                input(type="text" name="name")
+                br
+                p Мыло:
+                input(type="email" name="email")
+                br
+                p Пожаления к подарку:
+                textarea(name="wishes") 
+                br
+                br
+                input.submit(type="submit" value="Готово!")

@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+}
+
+.container {
+    margin: 0 auto;
+    margin-top: 50px;
+    min-width: 100px;
+    max-width: 960px;
+}
+
+h1 {
+    text-align: center;
+}
+
+a,span {
+    margin: 0;
+    padding: 0;
+    font-size: 50px;
+    font-weight: 300;
+    color: #DC113E;
+    transition: 0.25s ease;
+    &:hover {
+        color: #DC113E;
+        text-shadow: 0 0 50px #DC113E;
+        animation: shake 0.1s linear infinite;
+    }
+}
+
+.post {
+    font-family: 'Roboto', sans-serif;
+    
+    h2 {
+        color: #eee;
+    }
+    
+    p {
+        color: #aaa;
+        font-weight: 100;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.santa {
+    width: 400px;
+    display: inline-block;
+    margin-left: 280px;
+}
+
+form {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    width: 400px;
+    margin-left: 280px;
+    
+    p {
+        color: white;
+        margin: 0;
+        padding: 5px;
+        text-align: left;
+    }
+    
+    input {
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        display: inline-block;
+        width: 400px;
+    }
+    
+    .submit {
+        background-color: forestgreen;
+        border: none;
+        padding: 10px;
+        &:hover {
+            background-color: orangered;
+            cursor: pointer;
+        }
+    }
+    
+    textarea {
+        background-color: transparent;
+        color: white;
+        padding: 5px;
+        display: inline-block;
+        width: 400px;
+        height: 140px;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0px) translateY(0px) rotate(0deg) }
+    50% { transform: translateX(1px) translateY(0.5px) rotate(0.125deg) }
+    75% { transform: translateX(-1px) translateY(-0.5px) rotate(-0.125deg) }
+    100% { transform: translateX(0px) translateY(0px) rotate(0deg) }
+}
