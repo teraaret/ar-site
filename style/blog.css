@@ -4,6 +4,14 @@ body {
   padding: 0;
   background-color: #050505;
 }
+a {
+  text-decoration: none;
+  color: crimson;
+}
+a:hover {
+  color: #DC113E;
+  text-shadow: 0 0 50px #DC113E;
+}
 .container {
   margin: 0 auto;
   margin-top: 50px;
@@ -12,9 +20,11 @@ body {
 }
 h1 {
   text-align: center;
+  margin: 0;
+  padding: 0;
 }
-a,
-span {
+a.title,
+span.title {
   margin: 0;
   padding: 0;
   font-size: 50px;
@@ -22,39 +32,27 @@ span {
   color: #DC113E;
   transition: 0.25s ease;
 }
-a:hover,
-span:hover {
-  color: #DC113E;
-  text-shadow: 0 0 50px #DC113E;
-  animation: shake 0.1s linear infinite;
-}
 .post {
   font-family: 'Roboto', sans-serif;
 }
 .post .date {
   text-align: right;
+  float: right;
 }
-.post h2 {
+.post .date_center {
+  text-align: center;
   color: #eee;
 }
-.post p {
+.post .title {
+  color: #eee;
+}
+.post .text {
   color: #aaa;
   font-weight: 100;
 }
-a {
+.post .tag {
   text-decoration: none;
 }
-@keyframes shake {
-  0% {
-    transform: translateX(0px) translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateX(1px) translateY(0.5px) rotate(0.125deg);
-  }
-  75% {
-    transform: translateX(-1px) translateY(-0.5px) rotate(-0.125deg);
-  }
-  100% {
-    transform: translateX(0px) translateY(0px) rotate(0deg);
-  }
+.back {
+  text-align: center;
 }

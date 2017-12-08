@@ -13,6 +13,11 @@ body {
 h1 {
   text-align: center;
 }
+h1:hover {
+  color: #DC113E;
+  text-shadow: 0 0 50px #DC113E;
+  animation: shake 0.1s linear infinite;
+}
 a {
   margin: 0;
   padding: 0;
@@ -20,11 +25,6 @@ a {
   font-weight: 300;
   color: #DC113E;
   transition: 0.25s ease;
-}
-a:hover {
-  color: #DC113E;
-  text-shadow: 0 0 50px #DC113E;
-  animation: shake 0.1s linear infinite;
 }
 .grid {
   margin-top: 50px;
@@ -41,14 +41,28 @@ a:hover {
 }
 .item p {
   font-family: 'Roboto', sans-serif;
-  font-size: 100px;
   color: white;
   text-shadow: 0 0 10px black;
   position: absolute;
-  top: 140px;
   text-align: center;
   width: 300px;
   pointer-events: none;
+}
+.item p.title {
+  font-size: 100px;
+  top: 140px;
+}
+.item p.desc {
+  font-size: 16px;
+  top: 395px;
+  background-color: rgba(0, 0, 0, 0.85);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  opacity: 0;
+  transition: 0.25s ease;
+}
+.item:hover p.desc {
+  opacity: 1;
 }
 a {
   text-decoration: none;

@@ -7,8 +7,8 @@ class DATABASE
 
 	private $host = 'localhost';
 	private $user = 'root';
-	private $password = '';
-	private $db_name = 'magenta';
+	private $password = 'kaiii';
+	private $db_name = 'ar';
 
 	function __construct() {
 		$this->mysql = mysqli_connect($this->host, $this->user, $this->password, $this->db_name) or die('Database connection error');
@@ -22,134 +22,39 @@ class DATABASE
 		return self::$_instance;
 	}
     
-    //    СТРАНИЧКА НОВОСТЕЙ
-    
-    //    Загрузить все существующие новости
-    public function all_news()
+    public function load_all_posts()
     {
-        $sql = "SELECT * FROM news";
+        $sql = "SELECT * FROM blog";
         $result = mysqli_query($this->mysql, $sql);
         
         while ($row = mysqli_fetch_assoc($result)) 
         {
 			$data[] = $row;
 		}
-        $news = array_reverse($data);
-        return $news;
+        $posts = array_reverse($data);
+        return $posts;
     }
     
-    //    Загрузить конкретную новость через айди
-    public function load_new($id)
+    public function load_post($id)
     {
-        $sql = "SELECT * FROM news WHERE id = $id";
+        $sql = "SELECT * FROM blog WHERE id = $id";
         $result = mysqli_query($this->mysql, $sql);
         
-        $new = mysqli_fetch_assoc($result);
-        return $new;
+        $post = mysqli_fetch_assoc($result);
+        return $post;
     }
     
-    //    Добавить новую новость и картинку
-    public function create_new($sql)
+    public function load_by_tag($tag)
     {
-        mysqli_query($this->mysql, $sql) or die('Something is fuck');
-    }
-    
-    public function delete_new($id)
-    {
-        // Удоление героя
-        $sql = "DELETE FROM `news` WHERE `id` = '$id'";
-        $result = mysqli_query($this->mysql, $sql);
-    }
-    
-    // IDEAS
-    
-    public function all_ideas()
-    {
-        $sql = "SELECT * FROM ideas";
+        $sql = "SELECT * FROM blog WHERE tag = '$tag'";
         $result = mysqli_query($this->mysql, $sql);
         
         while ($row = mysqli_fetch_assoc($result)) 
         {
 			$data[] = $row;
 		}
-        $ideas = array_reverse($data);
-        return $ideas;
-    }
-    
-    public function create_idea($title, $text)
-    {
-        $sql = "INSERT INTO ideas (title, text) VALUES ('$title', '$text')";
-        $result = mysqli_query($this->mysql, $sql);
-    }
-    
-    //    СТРАНИЧКА РАС
-    
-    public function load_families()
-    {
-        $sql = "SELECT * FROM families";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$families[] = $row;
-		}
-        return $families;
-    }
-    
-    public function load_all_races()
-    {
-        $sql = "SELECT * FROM races";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$allraces[] = $row;
-		}
-        return $allraces;
-    }
-    
-    public function load_races($family)
-    {
-        $sql = "SELECT * FROM races WHERE family = '$family'";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$races[] = $row;
-		}
-        return $races;
-    }
-    
-    public function load_one_race($race)
-    {
-        $sql = "SELECT * FROM races WHERE name = '$race'";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        $race = mysqli_fetch_assoc($result);
-        return $race;
-    }
-    
-    // Страница персонажей
-    // Возвращает отсортированный массив $heroes
-    public function load_all_heroes()
-    {
-        $sql = "SELECT * FROM heroes";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$data[] = $row;
-		}
-        return $data;
-    }
-    
-    public function load_one_hero($hero)
-    {
-        $sql = "SELECT * FROM heroes WHERE link = '$hero'";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        $hero = mysqli_fetch_assoc($result);
-        return $hero;
+        $posts = array_reverse($data);
+        return $posts;
     }
     
     public function create_hero($link, $name, $bio, $setting, $faction, $family, $race, $gender)
@@ -170,33 +75,6 @@ class DATABASE
         $sql = "DELETE FROM `heroes` WHERE `link` = '$link'";
         $result = mysqli_query($this->mysql, $sql);
     } 
-    
-//    COUNTRIES
-    public function load_all_countries()
-    {
-        $sql = "SELECT * FROM countries";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$data[] = $row;
-		}
-        return $data;
-    }
-    
-    // history
-    
-    public function load_all_history()
-    {
-        $sql = "SELECT * FROM history ORDER BY date";
-        $result = mysqli_query($this->mysql, $sql);
-        
-        while ($row = mysqli_fetch_assoc($result)) 
-        {
-			$data[] = $row;
-		}
-        return $data;
-    }
 }
 
 ?>
