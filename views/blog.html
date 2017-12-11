@@ -7,6 +7,7 @@
     <meta name="keywords" content="Augustraido, august, raido, art, blog" />
     <link href="https://fonts.googleapis.com/css?family=Bellefair" rel="stylesheet" />
     <link rel="stylesheet" href="../style/blog.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -19,8 +20,7 @@
         <?php foreach($posts as $post): ?>
             <div class="post">
                 <h2 class="title"><a href="/blog/<?php echo $post['id'] ?>"><?php echo $post['title'] ?></a> <span class="date"><?php echo $post['date'] ?></span></h2>
-                <p class="text"><?php echo $post['text'] ?></p>
-<!--                <p><a href="/tag/<?php echo $post['tag'] ?>" class="tag"><?php echo $post['tag'] ?></a></p>-->
+                <p class="text blog"><?php echo $post['text'] ?></p>
                 <p class="text">Tag: <a href="/tag/<?php echo $post['tag'] ?>" class="tag"><?php echo $post['tag'] ?></a></p>
                 <hr />
             </div>
@@ -29,6 +29,14 @@
             <p class="back"><a href="/blog">« back</a></p>
         <?php endif; ?>
     </div>
+    
+    <script>
+        $('img').on("click", function(){
+//            var test = $(this).attr('src');
+//            alert(test);
+//            alert( this.attr('src') );
+            window.open( $(this).attr('src'), '_blank');
+        });
+    </script>
 </body>
-
 </html>

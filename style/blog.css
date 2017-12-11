@@ -9,14 +9,16 @@ a {
   color: crimson;
 }
 a:hover {
-  color: #DC113E;
-  text-shadow: 0 0 50px #DC113E;
+  color: white;
+  text-shadow: 0 0 25px #DC113E;
 }
 .container {
   margin: 0 auto;
   margin-top: 50px;
   min-width: 100px;
   max-width: 960px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 h1 {
   text-align: center;
@@ -31,6 +33,10 @@ span.title {
   font-weight: 300;
   color: #DC113E;
   transition: 0.25s ease;
+}
+a.title:hover {
+  color: white;
+  text-shadow: 0 0 25px #DC113E;
 }
 .post {
   font-family: 'Roboto', sans-serif;
@@ -49,6 +55,23 @@ span.title {
 .post .text {
   color: #aaa;
   font-weight: 100;
+}
+.post .text.blog img {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 200px;
+  transition: 0.25s ease;
+}
+.post .text.blog img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.post .text.post img {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
 }
 .post .tag {
   text-decoration: none;

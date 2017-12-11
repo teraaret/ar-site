@@ -9,6 +9,8 @@ body {
   margin-top: 50px;
   min-width: 100px;
   max-width: 900px;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 h1 {
   text-align: center;
@@ -26,11 +28,18 @@ a {
   color: #DC113E;
   transition: 0.25s ease;
 }
+a:hover {
+  color: white;
+  text-shadow: 0 0 25px #DC113E;
+}
 .grid {
   margin-top: 50px;
   background-color: #222;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+}
+.item {
+  width: 300px;
 }
 .item img {
   width: 100%;
